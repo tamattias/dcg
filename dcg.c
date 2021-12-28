@@ -44,7 +44,7 @@ int diagonalize(double m[], double p[], int n)
 				add_row_multiple(p, n, i, j, 1.0);
 				add_col_multiple(p, n, i, j, 1.0);
 			} else
-				return -1; /* Non-diagonizable! */
+				return -1; /* Non-diagonalizable! */
 		}
 
 		for (j = i+1; j < n; ++j) {
@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
 		scanf("%lf", &m[i]);
 
 	if (diagonalize(m, p, dim)) {
-		fprintf(stderr, "Matrix not congruently diagonizable.\n");
+		fprintf(stderr, "Matrix not congruently diagonalizable.\n");
 		return 1;
 	}
 
