@@ -75,11 +75,11 @@ int main(int argc, char *argv[])
 	double p[MAX_DIM*MAX_DIM]; /* Change of basis matrix. */
 	int i;
 
-	printf("Enter matrix dimension: ");
+	printf("Enter square matrix dimension (max %d): ", MAX_DIM);
 	scanf("%d", &dim);
 
 	if (dim < 0 || dim > MAX_DIM) {
-		fprintf(stderr, "bad dimension (max %d)\n", MAX_DIM);
+		fprintf(stderr, "Bad dimension.\n");
 		return 1;
 	}
 
@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
 		scanf("%lf", &m[i]);
 
 	if (diagonalize(m, p, dim)) {
-		fprintf(stderr, "matrix not congruently diagonizable.\n");
+		fprintf(stderr, "Matrix not congruently diagonizable.\n");
 		return 1;
 	}
 
