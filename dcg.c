@@ -61,7 +61,7 @@ int diagonalize(double m[], double p[], int n)
 	return 0;
 }
 
-void print_matrix(int m[], int dim)
+void print_matrix(double m[], int dim)
 {
 	int i;
 	for(i = 0; i < dim*dim; ++i)
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
 	printf("Enter matrix dimension: ");
 	scanf("%d", &dim);
 
-	if (dim > MAX_DIM) {
+	if (dim < 0 || dim > MAX_DIM) {
 		fprintf(stderr, "bad dimension (max %d)\n", MAX_DIM);
 		return 1;
 	}
