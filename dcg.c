@@ -40,9 +40,8 @@ int diagonalize(double m[], double p[], int n)
 				add_row_multiple(m, n, i, j, 1.0);
 				add_col_multiple(m, n, i, j, 1.0);
 
-				/* Apply same ops to identity matrix. */
+				/* Apply equivalent row operation to identity matrix. */
 				add_row_multiple(p, n, i, j, 1.0);
-				add_col_multiple(p, n, i, j, 1.0);
 			} else
 				return -1; /* Non-diagonalizable! */
 		}
@@ -50,10 +49,12 @@ int diagonalize(double m[], double p[], int n)
 		for (j = i+1; j < n; ++j) {
 			if (MELEM(m,n, i, j) != 0.0) {
 				factor = -(MELEM(m, n, i, j) / MELEM(m,n,i,i));
+
 				add_row_multiple(m, n, j, i, factor);
 				add_col_multiple(m, n, j, i, factor);
+
+				/* Only apply row operation to the change of basis matrix. */
 				add_row_multiple(p, n, j, i, factor);
-				add_col_multiple(p, n, j, i, factor);
 			}
 		}
 
