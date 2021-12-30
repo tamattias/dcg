@@ -41,7 +41,7 @@ int diagonalize(double m[], double p[], int n)
 				add_col_multiple(m, n, i, j, 1.0);
 
 				/* Apply equivalent row operation to identity matrix. */
-				add_row_multiple(p, n, i, j, 1.0);
+				add_col_multiple(p, n, i, j, 1.0);
 			} else
 				return -1; /* Non-diagonalizable! */
 		}
