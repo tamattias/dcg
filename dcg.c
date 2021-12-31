@@ -43,7 +43,7 @@ int diagonalize(double m[], double p[], int n)
 				/* Apply equivalent row operation to identity matrix. */
 				add_col_multiple(p, n, i, j, 1.0);
 			} else
-				return -1; /* Non-diagonalizable! */
+				continue;
 		}
 
 		for (j = i+1; j < n; ++j) {
@@ -90,6 +90,7 @@ int main(int argc, char *argv[])
 
 	if (diagonalize(m, p, dim)) {
 		fprintf(stderr, "Matrix not congruently diagonalizable.\n");
+		print_matrix(m, dim);
 		return 1;
 	}
 
