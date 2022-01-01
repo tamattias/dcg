@@ -40,7 +40,7 @@ int diagonalize(double m[], double p[], int n)
 				add_row_multiple(m, n, i, j, 1.0);
 				add_col_multiple(m, n, i, j, 1.0);
 
-				/* Apply equivalent row operation to identity matrix. */
+				/* Apply equivalent column operation to augmented matrix. */
 				add_col_multiple(p, n, i, j, 1.0);
 			} else
 				continue;
@@ -53,8 +53,8 @@ int diagonalize(double m[], double p[], int n)
 				add_row_multiple(m, n, j, i, factor);
 				add_col_multiple(m, n, j, i, factor);
 
-				/* Only apply row operation to the change of basis matrix. */
-				add_row_multiple(p, n, j, i, factor);
+				/* Apply column operation to the augmented matrix. */
+				add_col_multiple(p, n, j, i, factor);
 			}
 		}
 
